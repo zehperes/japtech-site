@@ -172,7 +172,8 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
 
 /* ---------- rodapé ---------- */
 .ft{border-top:1px solid var(--line);scroll-snap-align:end}
-.ft .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:calc(var(--ft) - 1px);font-size:13.5px;color:#7A7F77}
+/* a margem à direita abre espaço para o WhatsApp flutuante não cobrir o "Voltar ao topo" */
+.ft .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:calc(var(--ft) - 1px);padding-right:max(0px,96px - (100cqi - min(1180px,100cqi - 2*var(--gut)))/2);font-size:13.5px;color:#7A7F77}
 .ft .brand{display:flex;align-items:center;gap:12px}
 .ft .brand svg{width:16px;height:24px}
 .ft .up{display:inline-flex;align-items:center;gap:6px;transition:color .2s}
@@ -190,6 +191,46 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
 .lit i::before{background-image:radial-gradient(var(--limao) 1.9px,transparent 2.3px);-webkit-mask-image:radial-gradient(closest-side,#000,transparent 20%);mask-image:radial-gradient(closest-side,#000,transparent 20%)}
 /* sem mouse (celular), a luz nem é montada */
 @media (any-hover:none){.lit{display:none}}
+
+/* ---------- WhatsApp flutuante ---------- */
+/* fica fora do .site: lá dentro o position:fixed poderia se prender ao contêiner em vez da janela */
+.zap-btn{position:fixed;right:20px;bottom:20px;z-index:61;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--limao);color:var(--grafite);box-shadow:0 12px 32px -10px rgba(198,244,50,.6);transition:transform .2s var(--ease),box-shadow .25s}
+.js .zap-btn{animation:zin .6s var(--ease) 1.4s backwards}
+@keyframes zin{from{opacity:0;transform:translateY(12px) scale(.8)}}
+.zap-btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(198,244,50,.8)}
+.zap-btn::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--limao);opacity:0;pointer-events:none;animation:ping 2.4s ease-out infinite}
+.zap-btn svg{grid-area:1/1;width:30px;height:30px;transition:opacity .2s,transform .25s var(--ease)}
+.zap-btn .x{width:22px;height:22px;opacity:0;transform:rotate(-90deg) scale(.6)}
+.zap.open .zap-btn .w{opacity:0;transform:rotate(90deg) scale(.6)}
+.zap.open .zap-btn .x{opacity:1;transform:none}
+.zap.open .zap-btn::after{animation:none}
+.zap-bg{display:none}
+.zap-card{position:fixed;right:20px;bottom:94px;z-index:62;width:min(340px,100vw - 24px);max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);overflow-y:auto;overscroll-behavior:contain;margin:0;padding:22px 20px 18px;border-radius:22px;border:1px solid rgba(255,255,255,.12);background:#121311;box-shadow:0 30px 80px -24px #000;visibility:hidden;opacity:0;transform:translateY(10px) scale(.97);transform-origin:100% 100%;transition:opacity .2s,transform .25s var(--ease),visibility 0s .25s}
+.zap.open .zap-card{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+.zap-card:focus{outline:0}
+.zap-card h2{font-size:22px;letter-spacing:-.02em;line-height:1.2;margin:12px 0 6px}
+.zap-sub{color:var(--muted);font-size:14.5px;line-height:1.5}
+.zap-card label{display:block;margin:14px 0 6px;font-size:13px;color:var(--soft)}
+.zap-card input{display:block;width:100%;height:48px;padding:0 14px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--papel);font:400 16px var(--inter);transition:border-color .2s,background-color .2s}
+.zap-card input::placeholder{color:#6F746C}
+.zap-card input:focus{outline:0;border-color:var(--limao);background:rgba(198,244,50,.05)}
+.zap-card input[aria-invalid]{border-color:#FFB4A8}
+.zap-err{font-size:13px;color:#FFB4A8}
+.zap-err:not(:empty){margin-top:10px}
+.zap-card .btn{width:100%;margin-top:18px;border:0;cursor:pointer;font-family:inherit}
+.zap-err:not(:empty)+.btn{margin-top:12px}
+.zap-nota{margin-top:12px;font-size:12px;line-height:1.45;color:#7A7F77;text-align:center;text-wrap:balance}
+.zap-x{position:absolute;top:12px;right:12px;width:36px;height:36px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:none;color:var(--muted);cursor:pointer;transition:color .2s,background-color .2s}
+.zap-x:hover{color:var(--papel);background:rgba(255,255,255,.06)}
+.zap-x svg{width:18px;height:18px}
+/* tela estreita ou baixa: o formulário abre no alto, para o teclado do celular não cobrir os campos */
+@media (max-width:600px),(max-height:560px){
+  .zap-btn{right:16px;bottom:16px;width:54px;height:54px}
+  .zap-btn svg{width:28px;height:28px}
+  .zap-card{left:12px;right:12px;top:12px;bottom:auto;width:auto;max-width:400px;margin-inline:auto;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);transform:translateY(-10px) scale(.97);transform-origin:50% 0}
+  .zap-bg{display:block;position:fixed;inset:0;z-index:60;background:rgba(5,5,6,.66);touch-action:none;visibility:hidden;opacity:0;transition:opacity .2s,visibility 0s .2s}
+  .zap.open .zap-bg{visibility:visible;opacity:1;transition-delay:0s}
+}
 
 /* ---------- entrada e pausa fora da tela ---------- */
 .js .rv{opacity:0}
@@ -213,6 +254,7 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
 }
 @container site (max-width:600px){
   .cards{grid-template-columns:1fr}
+  .ft .wrap{padding-right:64px}
   .viz .v-desk{display:none}
   .viz .v-mob{display:block}
   .viz-in{max-width:380px}
@@ -235,7 +277,11 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
   .cta .ci{width:42px;height:42px}
   .cta b{font-size:15.5px}
 }
-@container site (max-width:400px){.cta .go{display:none}}
+@container site (max-width:400px){
+  .cta .go{display:none}
+  .ft .wrap{padding-right:58px;gap:10px;font-size:13px}
+}
+@container site (max-width:340px){.ft .brand svg{display:none}}
 
 @media (prefers-reduced-motion:reduce){
   html.ss{scroll-behavior:auto}
@@ -406,6 +452,30 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
   </footer>
 </div>
 
+<!-- WhatsApp flutuante: pede nome e telefone e abre a conversa com a mensagem pronta. Sem JavaScript, o botão abre o WhatsApp direto. -->
+<div class="zap" id="zap">
+  <div class="zap-bg" aria-hidden="true"></div>
+  <div class="zap-card" id="zap-card" role="dialog" aria-labelledby="zap-t" tabindex="-1">
+    <button class="zap-x" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="eyebrow"><i aria-hidden="true"></i>WhatsApp</p>
+    <h2 id="zap-t">Fale com a Japtech</h2>
+    <p class="zap-sub">Diga seu nome e telefone e a conversa já abre com a mensagem pronta.</p>
+    <form novalidate>
+      <label for="zap-n">Nome</label>
+      <input id="zap-n" name="nome" type="text" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="60" placeholder="Como podemos te chamar?" enterkeyhint="next" required>
+      <label for="zap-f">Telefone</label>
+      <input id="zap-f" name="fone" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="20" placeholder="(00) 00000-0000" enterkeyhint="send" required>
+      <p class="zap-err" role="alert"></p>
+      <button class="btn lime" type="submit">Abrir o WhatsApp<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </form>
+    <p class="zap-nota">Seus dados vão só na mensagem. O site não guarda nada.</p>
+  </div>
+  <a class="zap-btn" href="https://wa.me/5516991617065?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Japtech%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg class="w" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </a>
+</div>
+
 <script>
 (function(){
   var d=document;
@@ -466,6 +536,42 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
   /* ao rolar com o mouse parado, a luz continua embaixo dele */
   window.addEventListener('scroll',acorda,{passive:true});
   window.addEventListener('resize',acorda);
+  /* WhatsApp flutuante: o clique abre um formulário curto; nome e telefone entram na mensagem e nada é guardado nem enviado a servidor */
+  var zap=d.getElementById('zap');
+  if(zap){
+    var zb=zap.querySelector('.zap-btn'),zc=zap.querySelector('.zap-card'),zg=zap.querySelector('.zap-bg'),ze=zap.querySelector('.zap-err'),zm=zc.querySelector('form'),zn=zm.elements.nome,zf=zm.elements.fone;
+    var fino=window.matchMedia&&window.matchMedia('(pointer:fine)').matches;
+    var zabre=function(v){
+      zap.classList.toggle('open',v);zb.setAttribute('aria-expanded',v);
+      /* no celular o foco vai para o cartão, e o teclado só sobe quando a pessoa toca num campo */
+      if(v){ze.textContent='';(fino?zn:zc).focus();}
+    };
+    zb.setAttribute('aria-haspopup','dialog');zb.setAttribute('aria-controls','zap-card');zb.setAttribute('aria-expanded','false');
+    zb.addEventListener('click',function(e){e.preventDefault();zabre(!zap.classList.contains('open'));});
+    zap.querySelector('.zap-x').addEventListener('click',function(){zabre(false);zb.focus();});
+    d.addEventListener('keydown',function(e){if(e.key==='Escape'&&zap.classList.contains('open')){zabre(false);zb.focus();}});
+    d.addEventListener('pointerdown',function(e){if(zap.classList.contains('open')&&(e.target===zg||!zap.contains(e.target)))zabre(false);});
+    zm.addEventListener('input',function(e){ze.textContent='';e.target.removeAttribute('aria-invalid');});
+    zf.addEventListener('input',function(){
+      var v=zf.value.replace(/\D/g,'');
+      if(v.length>11&&v.indexOf('55')===0)v=v.slice(2);
+      v=v.slice(0,11);
+      zf.value=v.length>10?v.replace(/(\d{2})(\d{5})(\d{4})/,'($1) $2-$3'):v.length>6?v.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3'):v.length>2?v.replace(/(\d{2})(\d{0,4})/,'($1) $2'):v;
+    });
+    zm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var nome=zn.value.replace(/\s+/g,' ').trim(),n=zf.value.replace(/\D/g,'').length;
+      var falta=function(campo,aviso){ze.textContent=aviso;campo.setAttribute('aria-invalid','true');campo.focus();};
+      if(nome.length<2){falta(zn,'Escreva seu nome.');return;}
+      /* Enter no nome com o telefone ainda vazio só passa para o campo seguinte */
+      if(!n&&d.activeElement===zn){zf.focus();return;}
+      if(n<10||n>11){falta(zf,'Confira o telefone, com DDD.');return;}
+      var a=d.createElement('a');
+      a.href=zb.href.split('?')[0]+'?text='+encodeURIComponent('Olá! Meu nome é '+nome+' e meu telefone é '+zf.value.trim()+'. Vim pelo site da Japtech e quero conversar sobre um projeto.');
+      a.target='_blank';a.rel='noopener';a.click();
+      zabre(false);
+    });
+  }
   var y=d.getElementById('ano');if(y)y.textContent=new Date().getFullYear();
   /* rolagem suave só depois de carregar, para quem abre um link com #contato cair direto no lugar */
   window.addEventListener('load',function(){setTimeout(function(){d.documentElement.classList.add('ss');},50);});

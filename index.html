@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japtech · Aplicativos, sites e integrações sob medida</title>
+<meta name="description" content="Aplicativos, sites e integrações sob medida, ligados aos sistemas que a sua empresa já usa. Fale com a Japtech pelo WhatsApp.">
+<link rel="canonical" href="https://japtech.com.br/">
+<meta name="theme-color" content="#0B0B0C">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Japtech">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://japtech.com.br/">
+<meta property="og:title" content="Japtech · Sistemas que conversam">
+<meta property="og:description" content="Aplicativos, sites e integrações sob medida, ligados aos sistemas que a sua empresa já usa.">
+<meta property="og:image" content="https://japtech.com.br/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Japtech: sistemas que conversam.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Japtech",
+  "url": "https://japtech.com.br/",
+  "logo": "https://japtech.com.br/icon-512.png",
+  "email": "contato@japtech.com.br",
+  "description": "Aplicativos, sites e integrações sob medida, ligados aos sistemas que a empresa já usa."
+}
+</script>
+<script>document.documentElement.className+=' js'</script>
+<style>
+:root{
+  --grafite:#0B0B0C;--papel:#F4F4F1;--limao:#C6F432;--cinza:#6B7068;
+  --sora:"Sora","Segoe UI",Arial,sans-serif;--inter:"Inter","Segoe UI",Arial,sans-serif;
+  --line:rgba(255,255,255,.09);--muted:#A4A99F;--soft:#C9CDC4;--chip:#DADDD6;--body:#B7BBB2;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --gut:clamp(20px,4cqi,40px);
+  --nav:72px;--ft:81px;--grade:22px;
+}
+@media (max-width:640px){:root{--nav:64px}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-snap-type:y mandatory;scroll-padding-top:var(--nav)}
+html.ss{scroll-behavior:smooth}
+body{margin:0;background:var(--grafite);color:var(--papel);font-family:var(--inter);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+p{margin:0}
+:focus-visible{outline:2px solid var(--limao);outline-offset:3px;border-radius:8px}
+::selection{background:var(--limao);color:var(--grafite)}
+.skip{position:absolute;left:12px;top:-64px;z-index:100;padding:10px 16px;border-radius:10px;background:var(--limao);color:var(--grafite);font-weight:500;transition:top .2s}
+.skip:focus{top:12px}
+.site{container:site/inline-size;position:relative;overflow-x:clip}
+.wrap{width:min(1180px,100% - 2*var(--gut));margin-inline:auto}
+/* cada parte ocupa a tela inteira e a rolagem encaixa no começo de cada uma */
+.hero,.svc,.ct{scroll-snap-align:start;scroll-snap-stop:always}
+
+/* ---------- topo ---------- */
+.nav{position:sticky;top:0;z-index:50;height:var(--nav);border-bottom:1px solid transparent;transition:background-color .3s,border-color .3s}
+.nav.scrolled{background:rgba(11,11,12,.74);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:100%}
+.logo img{width:124px;height:auto}
+.links{display:flex;gap:28px;margin-left:auto;font-size:14.5px;color:var(--soft)}
+.links a{transition:color .2s}
+.links a:hover{color:var(--papel)}
+.pill{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:14px;font-weight:500;transition:border-color .2s,background-color .2s}
+.pill:hover{border-color:var(--limao);background:rgba(198,244,50,.08)}
+.pill svg{width:16px;height:16px}
+
+/* ---------- textos comuns ---------- */
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--limao);box-shadow:0 0 10px rgba(198,244,50,.8)}
+h1,h2,h3{font-family:var(--sora);font-weight:600;margin:0}
+h1{font-size:clamp(42px,5.6cqi,76px);letter-spacing:-.035em;line-height:1.02;margin:18px 0 20px}
+h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+.sub,.card p,.panel .lead{text-wrap:pretty}
+.dot{color:var(--limao)}
+
+/* ---------- botões ---------- */
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:48px;padding:0 22px;border-radius:999px;font-size:15px;font-weight:500;transition:transform .2s var(--ease),box-shadow .25s,border-color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.lime{background:var(--limao);color:var(--grafite)}
+.btn.lime:hover{transform:translateY(-1px);box-shadow:0 12px 32px -12px rgba(198,244,50,.65)}
+.btn.ghost{border:1px solid rgba(255,255,255,.18)}
+.btn.ghost:hover{border-color:rgba(255,255,255,.42)}
+.btn.ghost svg{transition:transform .2s var(--ease)}
+.btn.ghost:hover svg{transform:translateX(3px)}
+
+/* ---------- abertura ---------- */
+/* clip, e não hidden: hidden criaria uma área de rolagem própria e tiraria o encaixe das duas telas do celular */
+.hero{position:relative;isolation:isolate;overflow:clip}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(560px circle at 74% 50%,rgba(198,244,50,.075),transparent 65%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.075) 1px,transparent 1.2px);background-size:var(--grade) var(--grade);-webkit-mask-image:radial-gradient(ellipse 55% 70% at 72% 50%,#000,transparent);mask-image:radial-gradient(ellipse 55% 70% at 72% 50%,#000,transparent)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:32px;min-height:calc(100vh - var(--nav));min-height:calc(100svh - var(--nav));padding-block:24px 64px}
+.sub{color:var(--body);font-size:clamp(16px,1.45cqi,18px);line-height:1.6;max-width:470px}
+.viz svg{width:100%;height:auto;max-height:max(300px,calc(100svh - var(--nav) - 88px));overflow:visible}
+.viz .v-mob{display:none}
+.viz .wire{fill:none;stroke:rgba(255,255,255,.11);stroke-width:1.4}
+.viz .pulse{fill:none;stroke:var(--limao);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:12 120;stroke-dashoffset:12;filter:drop-shadow(0 0 5px rgba(198,244,50,.9));animation:flow 2.8s cubic-bezier(.5,0,.3,1) infinite;animation-delay:var(--dl,0s)}
+@keyframes flow{from{stroke-dashoffset:12}to{stroke-dashoffset:-100}}
+.viz .chip rect{fill:#121311;stroke:rgba(255,255,255,.13);stroke-width:1}
+.viz .chip text{font:500 13px var(--inter);fill:var(--chip)}
+.viz .chip.l rect{animation:chipL 2.8s linear infinite;animation-delay:var(--dl,0s)}
+.viz .chip.r rect{animation:chipR 2.8s linear infinite;animation-delay:var(--dl,0s)}
+@keyframes chipL{0%,6%{stroke:rgba(198,244,50,.9)}30%,100%{stroke:rgba(255,255,255,.13)}}
+@keyframes chipR{0%,58%{stroke:rgba(255,255,255,.13)}70%{stroke:rgba(198,244,50,.9)}100%{stroke:rgba(255,255,255,.13)}}
+.viz .hub{fill:#111210;stroke:rgba(198,244,50,.35);stroke-width:1.4}
+.viz .ring{fill:none;stroke:var(--limao);stroke-width:1.2;transform-box:fill-box;transform-origin:center;opacity:0;animation:ring 2.8s ease-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.9);opacity:0}}
+.viz .cap{font:400 11.5px var(--inter);letter-spacing:.03em;fill:#7A7F77}
+.cue{position:absolute;left:50%;bottom:10px;z-index:2;width:44px;height:44px;margin-left:-22px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.cue i{width:2px;height:26px;border-radius:2px;background:linear-gradient(var(--limao),rgba(198,244,50,0));transform-origin:top;animation:cue 1.9s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* ---------- serviços ---------- */
+.svc{display:flex;align-items:center;min-height:calc(100vh - var(--nav));min-height:calc(100svh - var(--nav));padding-block:clamp(32px,6vh,96px)}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(32px,4cqi,52px)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{--x:50%;--y:0%;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;border-radius:22px;padding:26px 24px 24px;background:linear-gradient(180deg,#121311,#0D0E0C);border:1px solid rgba(255,255,255,.08);transition:border-color .3s}
+.card>*{position:relative;z-index:1}
+.card::before{content:"";position:absolute;z-index:2;top:0;left:0;width:50%;height:1px;background:linear-gradient(90deg,transparent,var(--limao) 60%,transparent);box-shadow:0 0 12px rgba(198,244,50,.6);transform:translateX(-100%);animation:sweep 6s cubic-bezier(.5,0,.3,1) infinite;animation-delay:calc(var(--i,0) * 1.5s)}
+@keyframes sweep{0%{transform:translateX(-100%)}22%,100%{transform:translateX(200%)}}
+.card::after{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;background:radial-gradient(320px circle at var(--x) var(--y),rgba(198,244,50,.08),transparent 60%);opacity:0;transition:opacity .35s}
+.card:hover{border-color:rgba(198,244,50,.3)}
+.card:hover::after{opacity:1}
+.card .top{display:flex;align-items:center;justify-content:space-between}
+.ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(198,244,50,.07);border:1px solid rgba(198,244,50,.22);color:var(--limao);animation:icg 6s linear infinite;animation-delay:calc(var(--i,0) * 1.5s)}
+@keyframes icg{0%,2%{box-shadow:0 0 0 0 rgba(198,244,50,0);border-color:rgba(198,244,50,.22)}8%{box-shadow:0 0 22px 0 rgba(198,244,50,.35);border-color:rgba(198,244,50,.75)}24%,100%{box-shadow:0 0 0 0 rgba(198,244,50,0);border-color:rgba(198,244,50,.22)}}
+.ic svg{width:22px;height:22px}
+.num{font-size:12px;font-weight:500;letter-spacing:.1em;color:#5F645C;font-variant-numeric:tabular-nums}
+.card h3{font-size:23px;letter-spacing:-.02em;line-height:1.2;margin:26px 0 8px}
+.card p{margin:0 0 22px;color:var(--muted);font-size:15px;line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding:0;list-style:none}
+.chips li{font-size:12.5px;font-weight:500;color:var(--chip);padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025)}
+
+/* ---------- contato ---------- */
+.ct{display:flex;align-items:center;min-height:calc(100vh - var(--nav) - var(--ft));min-height:calc(100svh - var(--nav) - var(--ft));padding-block:clamp(32px,6vh,96px)}
+.panel{position:relative;isolation:isolate;overflow:hidden;border-radius:30px;border:1px solid rgba(255,255,255,.09);background:#0E0F0D;padding:clamp(28px,5cqi,64px);display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,4cqi,56px);align-items:center}
+.panel::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(520px circle at 86% 100%,rgba(198,244,50,.10),transparent 60%)}
+.panel::after{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.2px);background-size:var(--grade) var(--grade);-webkit-mask-image:radial-gradient(ellipse 70% 90% at 90% 100%,#000,transparent);mask-image:radial-gradient(ellipse 70% 90% at 90% 100%,#000,transparent)}
+.panel h2{font-size:clamp(34px,4.4cqi,58px);margin-top:16px}
+.panel .lead{color:var(--body);font-size:17px;line-height:1.6;margin-top:16px;max-width:420px}
+.ctas{display:grid;gap:12px;grid-auto-rows:1fr}
+.cta{display:flex;align-items:center;gap:16px;padding:18px 20px 18px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025);transition:border-color .2s,transform .2s var(--ease),box-shadow .25s}
+.cta:hover{border-color:rgba(198,244,50,.45)}
+.cta .ci{position:relative;flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(198,244,50,.1);color:var(--limao)}
+.cta .ci svg{width:22px;height:22px}
+.cta small{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}
+.cta b{display:block;font-weight:500;font-size:clamp(16px,1.7cqi,19px);letter-spacing:-.005em;overflow-wrap:anywhere}
+.cta .go{margin-left:auto;flex:none;width:22px;height:22px;opacity:.7;transition:transform .25s var(--ease),opacity .2s}
+.cta:hover .go{transform:translate(3px,-3px);opacity:1}
+.cta.wa{background:var(--limao);color:var(--grafite);border-color:transparent}
+.cta.wa .ci{background:var(--grafite);color:var(--limao)}
+.cta.wa .ci::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--grafite);opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.6);opacity:0}}
+.cta.wa:hover{transform:translateY(-2px);box-shadow:0 16px 40px -16px rgba(198,244,50,.6)}
+
+/* ---------- rodapé ---------- */
+.ft{border-top:1px solid var(--line);scroll-snap-align:end}
+.ft .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:calc(var(--ft) - 1px);font-size:13.5px;color:#7A7F77}
+.ft .brand{display:flex;align-items:center;gap:12px}
+.ft .brand svg{width:16px;height:24px}
+.ft .up{display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.ft .up:hover{color:var(--papel)}
+.ft .up svg{width:15px;height:15px}
+
+/* ---------- grade que acende em volta do mouse ---------- */
+/* um quadro de luz segue o ponteiro; os pontos dentro dele ficam presos à página, na mesma malha da abertura e do painel de contato */
+.lit{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.site>.lit{--oy:var(--nav)}
+.lit i{position:absolute;left:0;top:0;width:600px;height:600px;opacity:0;will-change:transform;transition:opacity .5s;background:radial-gradient(closest-side,rgba(198,244,50,.065),transparent)}
+.lit i::before,.lit i::after{content:"";position:absolute;inset:0;background-size:var(--grade) var(--grade);background-position:var(--bx,0px) calc(var(--by,0px) + var(--oy,0px))}
+/* os pontos acesos, que somem aos poucos para fora; e, bem perto do mouse, um pouco maiores */
+.lit i::after{background-image:radial-gradient(var(--limao) 1.3px,transparent 1.6px);-webkit-mask-image:radial-gradient(closest-side,#000,transparent 56%);mask-image:radial-gradient(closest-side,#000,transparent 56%)}
+.lit i::before{background-image:radial-gradient(var(--limao) 1.9px,transparent 2.3px);-webkit-mask-image:radial-gradient(closest-side,#000,transparent 20%);mask-image:radial-gradient(closest-side,#000,transparent 20%)}
+/* sem mouse (celular), a luz nem é montada */
+@media (any-hover:none){.lit{display:none}}
+
+/* ---------- entrada e pausa fora da tela ---------- */
+.js .rv{opacity:0}
+.js .rv.in{animation:rv .9s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes rv{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+
+/* ---------- tamanhos de tela ---------- */
+@container site (max-width:1060px){.cards{grid-template-columns:repeat(2,1fr)}}
+@container site (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;align-content:center;gap:clamp(24px,5vh,44px)}
+  .hero-bg{background:radial-gradient(420px circle at 50% 74%,rgba(198,244,50,.075),transparent 65%)}
+  .hero-bg::after{-webkit-mask-image:radial-gradient(ellipse 80% 40% at 50% 74%,#000,transparent);mask-image:radial-gradient(ellipse 80% 40% at 50% 74%,#000,transparent)}
+  .viz-in{width:100%;max-width:520px;margin-inline:auto}
+  .viz svg{max-height:max(300px,calc(100svh - var(--nav) - 412px))}
+  .panel{grid-template-columns:1fr}
+}
+@container site (max-width:640px){
+  .links{display:none}
+  .pill{margin-left:auto}
+}
+@container site (max-width:600px){
+  .cards{grid-template-columns:1fr}
+  .viz .v-desk{display:none}
+  .viz .v-mob{display:block}
+  .viz-in{max-width:380px}
+  /* no celular a abertura vira duas telas: o texto e o desenho */
+  .hero{scroll-snap-align:none}
+  .hero .wrap{display:block;min-height:0;padding-block:0}
+  .hero .copy,.hero .viz{min-height:calc(100vh - var(--nav));min-height:calc(100svh - var(--nav));scroll-snap-align:start;scroll-snap-stop:always}
+  .hero .copy{display:flex;flex-direction:column;justify-content:center;padding-block:16px 72px}
+  .hero .viz{display:grid;place-items:center;padding-block:16px}
+  .viz svg{max-height:max(300px,calc(100svh - var(--nav) - 32px))}
+  .cue{bottom:auto;top:calc(100svh - var(--nav) - 56px)}
+  /* o brilho e os pontos começam no fim da primeira tela e continuam atrás do desenho */
+  .hero-bg{background:radial-gradient(420px circle at 50% 74%,rgba(198,244,50,.075),transparent 65%),radial-gradient(340px circle at 50% 47%,rgba(198,244,50,.045),transparent 70%)}
+  .hero-bg::after{-webkit-mask-image:radial-gradient(ellipse 85% 36% at 50% 68%,#000,transparent);mask-image:radial-gradient(ellipse 85% 36% at 50% 68%,#000,transparent)}
+}
+@container site (max-width:480px){
+  .btn{padding:0 18px}
+  .panel{border-radius:24px;padding:30px 18px 18px}
+  .cta{padding:15px 14px;gap:12px}
+  .cta .ci{width:42px;height:42px}
+  .cta b{font-size:15.5px}
+}
+@container site (max-width:400px){.cta .go{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html.ss{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1}
+  .viz .pulse{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="site" id="topo">
+  <div class="lit" aria-hidden="true"><i></i></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="#topo" aria-label="Japtech, voltar ao início"><img src="assets/japtech-logo-fundo-escuro.svg" alt="Japtech" width="124" height="29"></a>
+      <nav class="links" aria-label="Seções"><a href="#servicos">Serviços</a><a href="#contato">Contato</a></nav>
+      <a class="pill" href="https://wa.me/5516991617065?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Japtech%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" data-anim>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="copy">
+          <p class="eyebrow rv" style="--d:.05s"><i aria-hidden="true"></i>Desenvolvimento e integração</p>
+          <h1 class="rv" style="--d:.15s">Sistemas que<br>conversam<span class="dot">.</span></h1>
+          <p class="sub rv" style="--d:.3s">Aplicativos, sites e integrações sob medida, ligados aos sistemas que a sua empresa já usa.</p>
+          <div class="btns rv" style="--d:.45s">
+            <a class="btn lime" href="https://wa.me/5516991617065?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Japtech%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Falar no WhatsApp</a>
+            <a class="btn ghost" href="#servicos">Ver serviços<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+
+        <div class="viz"><div class="viz-in rv" style="--d:.25s">
+          <svg class="v-desk" viewBox="0 0 520 420" role="img" aria-label="ERP, banco e planilhas ligados à Japtech, que cria app, site e automação">
+            <g>
+              <path class="wire" d="M101 70 C171 70 154 210 214 210"/>
+              <path class="wire" d="M93 210 C150 210 160 210 214 210"/>
+              <path class="wire" d="M120 350 C190 350 154 210 214 210"/>
+              <path class="wire" d="M306 210 C366 210 348 76 418 76"/>
+              <path class="wire" d="M306 210 C360 210 380 210 435 210"/>
+              <path class="wire" d="M306 210 C366 210 333 344 393 344"/>
+            </g>
+            <g>
+              <path class="pulse" pathLength="100" style="--dl:0s" d="M101 70 C171 70 154 210 214 210"/>
+              <path class="pulse" pathLength="100" style="--dl:-.95s" d="M93 210 C150 210 160 210 214 210"/>
+              <path class="pulse" pathLength="100" style="--dl:-1.9s" d="M120 350 C190 350 154 210 214 210"/>
+              <path class="pulse" pathLength="100" style="--dl:-1.5s" d="M306 210 C366 210 348 76 418 76"/>
+              <path class="pulse" pathLength="100" style="--dl:-2.45s" d="M306 210 C360 210 380 210 435 210"/>
+              <path class="pulse" pathLength="100" style="--dl:-.55s" d="M306 210 C366 210 333 344 393 344"/>
+            </g>
+            <g class="chip l" style="--dl:0s"><rect x="27" y="53" width="74" height="34" rx="17"/><text x="64" y="74.5" text-anchor="middle">ERP</text></g>
+            <g class="chip l" style="--dl:-.95s"><rect x="11" y="193" width="82" height="34" rx="17"/><text x="52" y="214.5" text-anchor="middle">Banco</text></g>
+            <g class="chip l" style="--dl:-1.9s"><rect x="20" y="333" width="100" height="34" rx="17"/><text x="70" y="354.5" text-anchor="middle">Planilhas</text></g>
+            <g class="chip r" style="--dl:-1.5s"><rect x="418" y="59" width="68" height="34" rx="17"/><text x="452" y="80.5" text-anchor="middle">App</text></g>
+            <g class="chip r" style="--dl:-2.45s"><rect x="435" y="193" width="70" height="34" rx="17"/><text x="470" y="214.5" text-anchor="middle">Site</text></g>
+            <g class="chip r" style="--dl:-.55s"><rect x="393" y="327" width="110" height="34" rx="17"/><text x="448" y="348.5" text-anchor="middle">Automação</text></g>
+            <circle class="ring" cx="260" cy="210" r="46"/>
+            <circle class="hub" cx="260" cy="210" r="46"/>
+            <g transform="translate(260 210) scale(.58) translate(-50 -50)"><path fill="#FFFFFF" d="M77 36V64A27 27 0 0 1 50 91A7 7 0 0 1 50 77A13 13 0 0 0 63 64V36A7 7 0 0 1 77 36Z"/><circle fill="#C6F432" cx="70" cy="16" r="8"/><circle fill="#C6F432" cx="30" cy="84" r="8"/></g>
+            <text class="cap" x="66" y="410" text-anchor="middle">o que você já usa</text>
+            <text class="cap" x="448" y="410" text-anchor="middle">o que a Japtech cria</text>
+          </svg>
+
+          <svg class="v-mob" viewBox="0 0 360 480" role="img" aria-label="ERP, banco e planilhas ligados à Japtech, que cria app, site e automação">
+            <text class="cap" x="180" y="14" text-anchor="middle">o que você já usa</text>
+            <g>
+              <path class="wire" d="M60 64 C60 140 180 118 180 194"/>
+              <path class="wire" d="M180 64 C180 118 180 140 180 194"/>
+              <path class="wire" d="M300 64 C300 140 180 118 180 194"/>
+              <path class="wire" d="M180 286 C180 362 60 340 60 416"/>
+              <path class="wire" d="M180 286 C180 340 180 362 180 416"/>
+              <path class="wire" d="M180 286 C180 362 300 340 300 416"/>
+            </g>
+            <g>
+              <path class="pulse" pathLength="100" style="--dl:0s" d="M60 64 C60 140 180 118 180 194"/>
+              <path class="pulse" pathLength="100" style="--dl:-.95s" d="M180 64 C180 118 180 140 180 194"/>
+              <path class="pulse" pathLength="100" style="--dl:-1.9s" d="M300 64 C300 140 180 118 180 194"/>
+              <path class="pulse" pathLength="100" style="--dl:-1.5s" d="M180 286 C180 362 60 340 60 416"/>
+              <path class="pulse" pathLength="100" style="--dl:-2.45s" d="M180 286 C180 340 180 362 180 416"/>
+              <path class="pulse" pathLength="100" style="--dl:-.55s" d="M180 286 C180 362 300 340 300 416"/>
+            </g>
+            <g class="chip l" style="--dl:0s"><rect x="24" y="30" width="72" height="34" rx="17"/><text x="60" y="51.5" text-anchor="middle">ERP</text></g>
+            <g class="chip l" style="--dl:-.95s"><rect x="139" y="30" width="82" height="34" rx="17"/><text x="180" y="51.5" text-anchor="middle">Banco</text></g>
+            <g class="chip l" style="--dl:-1.9s"><rect x="250" y="30" width="100" height="34" rx="17"/><text x="300" y="51.5" text-anchor="middle">Planilhas</text></g>
+            <g class="chip r" style="--dl:-1.5s"><rect x="26" y="416" width="68" height="34" rx="17"/><text x="60" y="437.5" text-anchor="middle">App</text></g>
+            <g class="chip r" style="--dl:-2.45s"><rect x="145" y="416" width="70" height="34" rx="17"/><text x="180" y="437.5" text-anchor="middle">Site</text></g>
+            <g class="chip r" style="--dl:-.55s"><rect x="245" y="416" width="110" height="34" rx="17"/><text x="300" y="437.5" text-anchor="middle">Automação</text></g>
+            <circle class="ring" cx="180" cy="240" r="46"/>
+            <circle class="hub" cx="180" cy="240" r="46"/>
+            <g transform="translate(180 240) scale(.58) translate(-50 -50)"><path fill="#FFFFFF" d="M77 36V64A27 27 0 0 1 50 91A7 7 0 0 1 50 77A13 13 0 0 0 63 64V36A7 7 0 0 1 77 36Z"/><circle fill="#C6F432" cx="70" cy="16" r="8"/><circle fill="#C6F432" cx="30" cy="84" r="8"/></g>
+            <text class="cap" x="180" y="474" text-anchor="middle">o que a Japtech cria</text>
+          </svg>
+        </div></div>
+      </div>
+      <button class="cue rv" type="button" style="--d:.9s" aria-label="Ver a próxima parte"><i aria-hidden="true"></i></button>
+    </section>
+
+    <section class="svc" id="servicos" data-anim aria-labelledby="t-servicos">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow rv"><i aria-hidden="true"></i>Serviços</p>
+          <h2 class="rv" id="t-servicos" style="--d:.1s">Da ideia ao sistema no ar<span class="dot">.</span></h2>
+        </div>
+        <div class="cards">
+          <article class="card rv" style="--i:0;--d:0s">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M10 12.5l-2 2 2 2M14 12.5l2 2-2 2"/></svg></span><span class="num" aria-hidden="true">01</span></div>
+            <h3>Criar</h3>
+            <p>Aplicativos, sites e sistemas sob medida.</p>
+            <ul class="chips"><li>Android e iOS</li><li>Sites</li><li>SaaS</li><li>Painéis</li></ul>
+          </article>
+          <article class="card rv" style="--i:1;--d:.08s">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5.5" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M7.2 12H10c2.6 0 3.4-6.5 6.8-6.5M10 12c2.6 0 3.4 6.5 6.8 6.5"/></svg></span><span class="num" aria-hidden="true">02</span></div>
+            <h3>Conectar</h3>
+            <p>Seus sistemas trocando dados, sem ninguém digitar nada duas vezes.</p>
+            <ul class="chips"><li>ERP</li><li>Bancos e Pix</li><li>APIs</li><li>Lojas virtuais</li></ul>
+          </article>
+          <article class="card rv" style="--i:2;--d:.16s">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.6-4.5L4 8M4 3.5V8h4.5M4 13a8 8 0 0 0 14.6 4.5L20 16M20 20.5V16h-4.5"/></svg></span><span class="num" aria-hidden="true">03</span></div>
+            <h3>Automatizar</h3>
+            <p>O trabalho repetitivo rodando sozinho.</p>
+            <ul class="chips"><li>Processos</li><li>WhatsApp</li><li>IA</li><li>Relatórios</li></ul>
+          </article>
+          <article class="card rv" style="--i:3;--d:.24s">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg></span><span class="num" aria-hidden="true">04</span></div>
+            <h3>Cuidar</h3>
+            <p>Seu sistema no ar, rápido e seguro.</p>
+            <ul class="chips"><li>Hospedagem</li><li>Manutenção</li><li>Suporte</li><li>Banco de dados</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ct" id="contato" data-anim aria-labelledby="t-contato">
+      <div class="wrap">
+        <div class="panel rv">
+          <div class="lit" aria-hidden="true"><i></i></div>
+          <div>
+            <p class="eyebrow"><i aria-hidden="true"></i>Contato</p>
+            <h2 id="t-contato">Vamos conversar?</h2>
+            <p class="lead">Conte o que você precisa. A conversa é sem compromisso.</p>
+          </div>
+          <div class="ctas">
+            <a class="cta wa" href="https://wa.me/5516991617065?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Japtech%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg></span>
+              <span><b>Falar no WhatsApp</b></span>
+              <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="cta" href="mailto:contato@japtech.com.br">
+              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span>
+              <span><small>E-mail</small><b>contato@japtech.com.br</b></span>
+              <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap">
+      <div class="brand"><svg viewBox="22 8 56 84" aria-hidden="true"><path fill="#FFFFFF" d="M77 36V64A27 27 0 0 1 50 91A7 7 0 0 1 50 77A13 13 0 0 0 63 64V36A7 7 0 0 1 77 36Z"/><circle fill="#C6F432" cx="70" cy="16" r="8"/><circle fill="#C6F432" cx="30" cy="84" r="8"/></svg><span>© <span id="ano">2026</span> Japtech</span></div>
+      <a class="up" href="#topo">Voltar ao topo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var d=document;
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  function show(el){el.classList.add('in');}
+  /* o que já está na tela aparece na hora; o resto entra ao rolar */
+  rv.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)show(el);});
+  /* rede de segurança: nada fica escondido se o observador falhar */
+  setTimeout(function(){rv.forEach(show);},3500);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el);});
+    var ip=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('paused',!e.isIntersecting);});});
+    [].forEach.call(d.querySelectorAll('[data-anim]'),function(el){ip.observe(el);});
+  }else{rv.forEach(function(el){el.classList.add('in');});}
+  var nav=d.querySelector('.nav');
+  function sc(){nav.classList.toggle('scrolled',window.scrollY>8);}
+  window.addEventListener('scroll',sc,{passive:true});sc();
+  var calmo=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+  var cue=d.querySelector('.cue');
+  if(cue)cue.addEventListener('click',function(){
+    window.scrollBy({top:window.innerHeight-nav.offsetHeight,behavior:calmo.matches?'auto':'smooth'});
+  });
+  [].forEach.call(d.querySelectorAll('.card'),function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-r.left)+'px');c.style.setProperty('--y',(e.clientY-r.top)+'px');});});
+  /* a grade de pontos acende em volta do mouse; a luz chega com um leve atraso e descansa quando o mouse para */
+  var luzes=[].map.call(d.querySelectorAll('.lit'),function(el){return{el:el,i:el.firstElementChild};});
+  var G=parseFloat(getComputedStyle(d.documentElement).getPropertyValue('--grade'))||22;
+  var tx=0,ty=0,cx=0,cy=0,nivel=0,rodando=false,antes=0,pausa=0;
+  function brilho(v){if(v!==nivel){nivel=v;luzes.forEach(function(L){L.i.style.opacity=v;});}}
+  function poe(){
+    var q=window.devicePixelRatio||1;
+    var cs=luzes.map(function(L){return L.el.getBoundingClientRect();});
+    luzes.forEach(function(L,n){
+      var r=L.i.offsetWidth/2,x=Math.round((cx-cs[n].left-r)*q)/q,y=Math.round((cy-cs[n].top-r)*q)/q;
+      L.i.style.transform='translate3d('+x+'px,'+y+'px,0)';
+      /* o quadro anda com o mouse, mas os pontos dentro dele não saem do lugar */
+      L.i.style.setProperty('--bx',((-x%G+G)%G)+'px');
+      L.i.style.setProperty('--by',((-y%G+G)%G)+'px');
+    });
+  }
+  function quadro(t){
+    var k=1-Math.exp(-(antes?Math.min(50,t-antes):16)/130);antes=t;
+    cx+=(tx-cx)*k;cy+=(ty-cy)*k;poe();
+    if(nivel&&Math.abs(tx-cx)+Math.abs(ty-cy)>.3)requestAnimationFrame(quadro);else rodando=false;
+  }
+  function acorda(){if(nivel&&!rodando){rodando=true;antes=0;requestAnimationFrame(quadro);}}
+  window.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch')return;
+    if(calmo.matches){brilho(0);return;}
+    tx=e.clientX;ty=e.clientY;
+    if(!nivel){cx=tx;cy=ty;}
+    brilho(1);acorda();
+    clearTimeout(pausa);pausa=setTimeout(function(){if(nivel)brilho(.6);},1400);
+  },{passive:true});
+  function apaga(e){if(e.pointerType!=='touch'){clearTimeout(pausa);brilho(0);}}
+  d.documentElement.addEventListener('pointerleave',apaga);
+  window.addEventListener('blur',apaga);
+  /* ao rolar com o mouse parado, a luz continua embaixo dele */
+  window.addEventListener('scroll',acorda,{passive:true});
+  window.addEventListener('resize',acorda);
+  var y=d.getElementById('ano');if(y)y.textContent=new Date().getFullYear();
+  /* rolagem suave só depois de carregar, para quem abre um link com #contato cair direto no lugar */
+  window.addEventListener('load',function(){setTimeout(function(){d.documentElement.classList.add('ss');},50);});
+})();
+</script>
+</body>
+</html>

@@ -237,7 +237,7 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
 }
 
 /* ---------- formulário de e-mail ---------- */
-/* o cartão "E-mail" do contato abre este formulário; a mensagem chega na caixa contato@ pelo FormSubmit */
+/* o cartão "E-mail" do contato abre este formulário; a mensagem chega na caixa contato@ pelo Web3Forms */
 .msg{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:16px;visibility:hidden;transition:visibility 0s .3s}
 .msg.open{visibility:visible;transition-delay:0s}
 .msg-bg{position:absolute;inset:0;background:rgba(5,5,6,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);touch-action:none;opacity:0;transition:opacity .25s}
@@ -535,7 +535,7 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
   </a>
 </div>
 
-<!-- Formulário de e-mail: o cartão "E-mail" do contato abre este formulário, e a mensagem chega pronta na caixa contato@ (pelo FormSubmit). Sem JavaScript, o cartão abre o programa de e-mail. -->
+<!-- Formulário de e-mail: o cartão "E-mail" do contato abre este formulário, e a mensagem chega pronta na caixa contato@ (pelo Web3Forms). Sem JavaScript, o cartão abre o programa de e-mail. -->
 <div class="msg" id="msg">
   <div class="msg-bg" aria-hidden="true"></div>
   <div class="msg-card" role="dialog" aria-modal="true" aria-labelledby="msg-t" tabindex="-1">
@@ -560,7 +560,7 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
           </div>
         </fieldset>
         <div class="fld"><label for="msg-m">Mensagem</label><textarea id="msg-m" name="mensagem" rows="4" maxlength="3000" placeholder="Conte um pouco do que você precisa." required></textarea></div>
-        <input class="msg-mel" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input class="msg-mel" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
         <p class="msg-err" role="alert"></p>
         <button class="btn lime" type="submit"><span>Enviar mensagem</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </form>
@@ -675,10 +675,11 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
       zabre(false);
     });
   }
-  /* formulário de e-mail: o cartão "E-mail" abre um formulário, e a mensagem chega pronta na caixa contato@ pelo FormSubmit */
+  /* formulário de e-mail: o cartão "E-mail" abre um formulário, e a mensagem chega pronta na caixa contato@ pelo Web3Forms */
   var msg=d.getElementById('msg'),mAbre=d.querySelector('[data-msg]');
   if(msg&&mAbre&&window.fetch){
-    var DESTINO='https://formsubmit.co/ajax/contato@japtech.com.br';
+    /* a chave do Web3Forms é pública por natureza: ela só serve para entregar mensagens na caixa contato@ */
+    var DESTINO='https://api.web3forms.com/submit',CHAVE='4fc480b4-b2cb-485d-a30b-809de83a0a17';
     var mc=msg.querySelector('.msg-card'),mg=msg.querySelector('.msg-bg'),mf=msg.querySelector('form'),me=msg.querySelector('.msg-err'),mb=mf.querySelector('[type=submit]'),mbt=mb.firstElementChild,mok=msg.querySelector('.msg-ok h2');
     var mDesde=0,mVolta=null,mIndo=false;
     var mAberto=function(){return msg.classList.contains('open');};
@@ -722,27 +723,24 @@ h2{font-size:clamp(32px,3.9cqi,52px);letter-spacing:-.03em;line-height:1.08;text
       if(texto.length<2)return falta(el.mensagem,'Escreva sua mensagem.');
       var assunto=[].filter.call(mf.querySelectorAll('[name=assunto]'),function(c){return c.checked;}).map(function(c){return c.value;}).join(', ');
       /* robô: preencheu o campo escondido ou enviou rápido demais; finge que deu certo e não manda nada */
-      if(el._honey.value||Date.now()-mDesde<3000){mPronto();return;}
+      if(el.botcheck.value||Date.now()-mDesde<3000){mPronto();return;}
       mIndo=true;me.textContent='';mb.setAttribute('aria-disabled','true');mbt.textContent='Enviando…';
       var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort();},20000);
       fetch(DESTINO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},signal:ctl?ctl.signal:undefined,body:JSON.stringify({
-        _subject:'Contato pelo site: '+nome,
-        _template:'table',
-        _captcha:'false',
-        _replyto:email,
-        _url:'https://japtech.com.br/',
-        _honey:'',
-        nome:nome,
-        whatsapp:fone,
+        access_key:CHAVE,
+        subject:'Contato pelo site: '+nome,
+        from_name:'Site da Japtech',
+        replyto:email,
+        'Nome':nome,
+        'WhatsApp':fone,
         /* um clique no e-mail recebido já abre a conversa com a pessoa */
-        abrir_conversa:'https://wa.me/55'+fone.replace(/\D/g,''),
-        email:email,
-        assunto:assunto||'não marcado',
-        mensagem:texto
+        'Abrir conversa':'https://wa.me/55'+fone.replace(/\D/g,''),
+        'E-mail':email,
+        'Assunto':assunto||'não marcado',
+        'Mensagem':texto
       })}).then(function(r){
         return r.json().catch(function(){return {};}).then(function(j){
-          /* o FormSubmit guarda as mensagens até a caixa ser confirmada, então "precisa ativar" também conta como recebida */
-          if(r.ok&&(String(j.success)==='true'||/activ/i.test(j.message||'')))return;
+          if(r.ok&&String(j.success)==='true')return;
           throw new Error(j.message||('HTTP '+r.status));
         });
       }).then(mPronto,function(){
